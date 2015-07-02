@@ -1,0 +1,13 @@
+package: pysapp
+script:
+  - conda build ./scripts/condarecipe
+build_targets:
+  - conda
+platform: 
+  - linux-64
+engine:
+  - python=3
+  - numpy=1.9
+  - pytest=2.7
+env:
+  - CC=gcc
