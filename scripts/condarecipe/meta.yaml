@@ -1,0 +1,29 @@
+package:
+  name: pysapp
+  version: "0.8.2"
+
+source:
+  path: ../..
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - python
+    - numpy
+  run:
+    - python >=3.2
+    - numpy >=1.8
+    - pytest
+
+test:
+  imports:
+    - pysapp
+
+  requires:
+    - pytest
+
+about:
+  license: MIT License
+  summary: "ISA Model computed in C++"
