@@ -9,5 +9,6 @@ engine:
   - python=3
   - numpy=1.9
   - pytest=2.7
+  - swig=3
 env:
   - CC=gcc
