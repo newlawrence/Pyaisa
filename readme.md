@@ -18,6 +18,28 @@ Pysapp is also fully configurable, so feel free to change every single parameter
 
 Although the model is finished, there're many more things to do yet: writing the documentation, improving inline comments in the code, adding more tests... so keep an eye on future commits!
 
+### The roots
+
+Pysapp was born in another project where the [AeroPython team](https://github.com/AeroPython) begun writting an aerospace computation toolkit, [aeropy](https://github.com/AeroPython/aeropy). Our primary goal was to learn how to work as a team and acquire skills as git/github users.
+
+Our secondary goal was to adopt different aproaches to the problem of coding the ISA (International Standard Atmosphere) model, a set of equations to estimate the variation of the temperature, pressure and air density with height.
+
+Pysapp is a fork of [the work I begun then](https://github.com/AeroPython/aeropy/tree/alberto-cpp), and I've focused in cpu performance as seen in the graph:
+
+![benchmark](./static/i5-5250U.png)
+
+*Pysapp strength resides in it's ability to guess the best point to switch from single to multicore processing at import time.*
+
+### Installation
+
+Source code installation in a Python 3 environment via `setup.py`:
+
+`$ python setup.py install`
+
+Conda packages for Linux, OS X and Windows 64 bit plattforms are provided:
+
+`$ conda install pysapp --channel newlawrence`
+
 ### Acknowledgements
 
-Thanks to my friend  Juan Luis Cano [@Juanlu001](https://github.com/Juanlu001), he introduced me in this marvellous world of the Open Source. This project its a tribute to him and all the fantastic [@AeroPython](https://github.com/AeroPython) team.
+Thanks to my friend [Juan Luis Cano](https://github.com/Juanlu001). He introduced me in this marvellous world of the Open Source. This project its a tribute to him and all the fantastic [AeroPython team](https://github.com/AeroPython).

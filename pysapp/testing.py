@@ -6,10 +6,11 @@ Distributed under the MIT License.
 http://opensource.org/licenses/MIT)
 '''
 
-
 import os.path
 import pytest
 
 
 def test_library():
     pytest.main(os.path.dirname(os.path.abspath(__file__)))
+
+test_library()

@@ -15,9 +15,7 @@ import numpy
 
 version = '0.8.2'
 base_name = 'pysapp'
-include_path = \
-    os.path.join(os.path.abspath(__file__)
-                 [:-1 - len(os.path.basename(__file__))], 'include')
+include_path = './include'
 
 copt = {'msvc': ['/openmp', '/Ox'],
         'mingw32': ['-fopenmp', '-O3'],
