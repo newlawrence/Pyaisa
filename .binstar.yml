@@ -1,6 +1,6 @@
 package: pysapp
 script:
-  - conda build ./scripts/condarecipe
+  - conda build ./conda-recipe
 build_targets:
   - conda
 platform: 

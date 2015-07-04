@@ -12,5 +12,3 @@ import pytest
 
 def test_library():
     pytest.main(os.path.dirname(os.path.abspath(__file__)))
-
-test_library()
