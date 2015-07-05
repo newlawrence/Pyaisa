@@ -30,6 +30,10 @@ build: false
 
 test_script:
   - "%CMD_IN_ENV% conda build recipes\\conda-win --quiet"
+  - "python integration\\move-conda-package.py recipes\\conda-win"
+
+artifacts:
+  - path: '*.tar.bz2'
 
 on_success:
   - "python integration\\binstar-push.py"
