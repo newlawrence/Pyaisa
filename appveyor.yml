@@ -2,7 +2,7 @@ version: 0.8.2-{build}
 
 branches:
   only:
-    - appveyor
+    - master
 
 environment:
   binstar_token:
