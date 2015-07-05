@@ -1,0 +1,39 @@
+version: 0.8.2-{build}
+
+branches:
+  only:
+    - appveyor
+
+environment:
+  binstar_token:
+    secure: b2ncXZ38LPZE+fGFa6/wXpL048Kl2bUZzXVCjBwc6wb9D8CeZ68BqlmYRC6kct9+
+
+  global:
+    CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\integration\\appveyor\\run_with_env.cmd"
+
+  matrix:
+    - PYTHON: "C:\\Python34_64"
+      PYTHON_VERSION: "3.4"
+      PYTHON_ARCH: "64"
+      CONDA_PY: "34"
+      CONDA_NPY: "19"
+
+install:
+  - powershell .\\integration\\appveyor\\install.ps1
+  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  - "choco -y install swig"
+  - "conda config --set always_yes yes --set changeps1 no"
+  - "conda update conda --quiet"
+  - "conda update -n root conda-build --quiet"
+
+build: false
+
+test_script:
+  - "%CMD_IN_ENV% conda build recipes\\conda-win --quiet"
+  - "python integration\\move-conda-package.py recipes\\conda-win"
+
+artifacts:
+  - path: '*.tar.bz2'
+
+on_success:
+  - "python integration\\binstar-push.py"
