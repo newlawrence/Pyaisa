@@ -3,7 +3,8 @@ package:
   version: "0.8.2"
 
 source:
-  git_url: https://github.com/newlawrence/Pysapp.git
+  path: ../..
+  #git_url: https://github.com/newlawrence/Pysapp.git
 
 build:
   number: 2
