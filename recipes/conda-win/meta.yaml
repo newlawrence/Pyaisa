@@ -2,12 +2,12 @@ package:
   name: pysapp
   version: "0.8.2"
 
+build:
+  number: 2
+
 source:
   path: ../..
   #git_url: https://github.com/newlawrence/Pysapp.git
-
-build:
-  number: 2
 
 requirements:
   build:

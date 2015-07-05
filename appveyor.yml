@@ -1,3 +1,5 @@
+version: 0.8.2-{build}
+
 branches:
   only:
     - appveyor
@@ -19,15 +21,19 @@ environment:
 install:
   - powershell .\\integration\\appveyor\\install.ps1
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  - "choco -y install swig"
+  - "conda config --set always_yes yes --set changeps1 no"
+  - "conda update conda --quiet"
+  - "conda update -n root conda-build --quiet"
 
 build: false
 
 test_script:
   - "%CMD_IN_ENV% conda build recipes\\conda-win --quiet"
-  - python integration\move-conda-package.py recipes\conda-win
+  - "python integration\\move-conda-package.py recipes\\conda-win"
 
 artifacts:
   - path: '*.tar.bz2'
 
 on_success:
-  - python integration\binstar-push.py
+  - "python integration\\binstar-push.py"
