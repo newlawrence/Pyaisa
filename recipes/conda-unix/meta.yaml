@@ -20,13 +20,6 @@ requirements:
     - numpy >=1.8
     - pytest
 
-test:
-  imports:
-    - pysapp
-
-  requires:
-    - pytest
-
 about:
   license: MIT License
   home: https://github.com/newlawrence/Pysapp
