@@ -66,4 +66,5 @@ setup(name=base_name,
       ext_modules=[extension],
       cmdclass={'build': build_subclass,
                 'build_ext': build_ext_subclass},
-      packages=[base_name, base_name + '.' + ext_name],)
+      packages=[base_name, base_name + '.' + ext_name,
+                base_name + '.' + 'test'])
