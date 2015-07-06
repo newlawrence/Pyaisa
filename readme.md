@@ -1,4 +1,4 @@
-# Pysapp v0.8.2
+# Pysapp v0.8.3
 
 #### Python 3 - ISA Model computed in parallel C++
 
@@ -14,9 +14,7 @@ Current automated builds:
 | OS X-x64    | Travis CI | [![Travis CI Badge](https://api.travis-ci.org/newlawrence/Pysapp.svg)](https://travis-ci.org/newlawrence/Pysapp) |
 | Windows-x64 | Appveyor  | [![Appveyor Badge](https://ci.appveyor.com/api/projects/status/26yyxvrgvtc8l4fn?svg=true)](https://ci.appveyor.com/project/newlawrence/pysapp) |
 
-<font color=red>
 *Automated builds don't currently support parallelization.*
-</font>
 
 ### A simple Standard Atmosphere Model
 
@@ -42,7 +40,7 @@ Pysapp is a fork of [the work I begun then](https://github.com/AeroPython/aeropy
 
 ### Installation
 
-Source code installation in a Python 3 environment via `setup.py` (set up `PARALLEL` environment variable for a parallel build):
+Source code installation in a Python 3 environment via `setup.py` (set up `PARALLEL` environment variable first for a parallel build):
 
 ```
 $ export PARALLEL=1

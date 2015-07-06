@@ -7,7 +7,7 @@ http://opensource.org/licenses/MIT)
 '''
 
 __author__ = 'Alberto Lorenzo'
-__version__ = '0.8.2'
+__version__ = '0.8.3'
 __date__ = '02/07/2015'
 __email__ = 'alorenzo.md@gmail.com'
 __license__ = 'MIT'

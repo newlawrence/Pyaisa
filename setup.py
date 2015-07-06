@@ -13,7 +13,7 @@ import os
 
 import numpy
 
-version = '0.8.2'
+version = '0.8.3'
 base_name = 'pysapp'
 include_path = './include'
 
@@ -70,6 +70,9 @@ extension = Extension(base_name + '.' + ext_name + '._' + ext_name,
 setup(name=base_name,
       version=version,
       author='Alberto Lorenzo',
+      author_email='alorenzo.md@gmail.com',
+      home_page='https://github.com/newlawrence/Pysapp',
+      license='MIT',
       description='ISA Model computed in C++',
       ext_modules=[extension],
       cmdclass={'build': build_subclass,
