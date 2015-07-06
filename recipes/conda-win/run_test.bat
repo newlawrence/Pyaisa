@@ -1,3 +1,3 @@
 CD %SRC_DIR%
-py.test
+py.test pysapp
 IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%

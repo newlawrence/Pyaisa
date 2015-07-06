@@ -1,3 +1,2 @@
 cd $SRC_DIR
-
-py.test
+py.test pysapp
