@@ -11,7 +11,7 @@ install:
   - source integration/travis/install.sh
 
 script:
-  - conda build conda-recipe --quiet
+  - conda build recipes/conda-unix --quiet
 
 after_success:
   - integration/binstar-push.py recipes/conda-unix master
