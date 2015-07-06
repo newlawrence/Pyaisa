@@ -9,9 +9,7 @@ import traceback
 
 try:
     branch = os.environ['APPVEYOR_REPO_BRANCH']
-    print(branch)
     if branch == 'master':
-
         with open(os.path.join(sys.argv[1], 'meta.yaml')) as f:
             name = yaml.load(f)['package']['name']
         binary_package_glob = os.path.join(config.bldpkgs_dir,
