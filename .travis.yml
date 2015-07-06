@@ -11,6 +11,7 @@ install:
   - source integration/travis/install.sh
 
 script:
+  - export TRAVIS=1
   - conda build recipes/conda-unix --quiet
 
 after_success:
