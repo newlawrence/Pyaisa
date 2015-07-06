@@ -26,17 +26,10 @@ install:
   - "conda update conda --quiet"
   - "conda update -n root conda-build --quiet"
 
-build: false
+build: off
 
 test_script:
   - "%CMD_IN_ENV% conda build recipes\\conda-win --quiet"
-  - "IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%"
-  - "python integration\\move-conda-package.py recipes\\conda-win"
-  - "IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%"
-
-artifacts:
-  - path: '*.tar.bz2'
 
 on_success:
   - "python integration\\binstar-push.py"
-  - "IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%"
