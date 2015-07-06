@@ -20,12 +20,16 @@ include_path = './include'
 copt = {'mingw32': ['-fopenmp', '-O3'],
         'mingw64': ['-fopenmp', '-O3'],
         'cygwin': ['-fopenmp', '-O3'],
-        #'msvc': ['/openmp', '/Ox'],    OpenMP not support by Appveyor
+        'msvc': ['/openmp', '/Ox'],
         'unix': ['-fopenmp', '-O3']}
 lopt = {'mingw32': ['-lgomp'],
         'mingw64': ['-lgomp'],
         'cygwin': ['-lgomp'],
         'unix': ['-lgomp']}
+
+if 'TRAVIS' in os.environ or 'APPVEYOR' in os.environ:
+    copt = {}
+    lopt = {}
 
 
 class build_subclass(build):
