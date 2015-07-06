@@ -32,4 +32,4 @@ test_script:
   - "%CMD_IN_ENV% conda build recipes\\conda-win --quiet"
 
 on_success:
-  - "python integration\\binstar-push.py recipes\\conda-win"
+  - "python integration\\binstar-push.py recipes\\conda-win master"

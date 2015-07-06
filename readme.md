@@ -6,13 +6,13 @@
 [![Binstar Badge](https://binstar.org/newlawrence/pysapp/badges/license.svg)](https://binstar.org/newlawrence/pysapp)
 [![Binstar Badge](https://binstar.org/newlawrence/pysapp/badges/installer/conda.svg)](https://conda.binstar.org/newlawrence)
 
-Actual builds:
+Current automated builds:
 
-| Platform    | Automated build |
-|-------------|:---------------:|
-| Linux-x64   | [![Binstar Badge](https://binstar.org/newlawrence/pysapp/badges/build.svg)](https://binstar.org/newlawrence/pysapp/builds) |
-| OS X-x64    | *In progress...*  |
-| Windows-x64 | [![Build status](https://ci.appveyor.com/api/projects/status/qxdx12yl9h8hyjux?svg=true)](https://ci.appveyor.com/project/newlawrence/pysapp) |
+| Platform    | Site      | Status            |
+|-------------|-----------|:-----------------:|
+| Linux-x64   | Binstar   |[![Binstar Badge](https://binstar.org/newlawrence/pysapp/badges/build.svg)](https://binstar.org/newlawrence/pysapp/builds) |
+| OS X-x64    | Travis CI | *In progress...*  |
+| Windows-x64 | Appveyor  | [![Build status](https://ci.appveyor.com/api/projects/status/qxdx12yl9h8hyjux?svg=true)](https://ci.appveyor.com/project/newlawrence/pysapp) |
 
 
 ### A simple Standard Atmosphere Model
