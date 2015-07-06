@@ -14,4 +14,4 @@ script:
   - conda build conda-recipe --quiet
 
 after_success:
-  - integration/binstar-push.py conda-recipe master
+  - integration/binstar-push.py recipes/conda-unix master
