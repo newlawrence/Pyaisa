@@ -17,15 +17,23 @@ version = '0.8.2'
 base_name = 'pysapp'
 include_path = './include'
 
-copt = {'mingw32': ['-fopenmp', '-O3'],
-        'mingw64': ['-fopenmp', '-O3'],
-        'cygwin': ['-fopenmp', '-O3'],
-        #'msvc': ['/openmp', '/Ox'],    OpenMP not support by Appveyor
-        'unix': ['-fopenmp', '-O3']}
-lopt = {'mingw32': ['-lgomp'],
-        'mingw64': ['-lgomp'],
-        'cygwin': ['-lgomp'],
-        'unix': ['-lgomp']}
+copt = {}
+lopt = {}
+try:
+    parallel = bool(os.environ['PARALLEL'])
+except KeyError:
+    parallel = False
+
+if parallel:
+    copt = {'mingw32': ['-fopenmp', '-O3'],
+            'mingw64': ['-fopenmp', '-O3'],
+            'cygwin': ['-fopenmp', '-O3'],
+            'msvc': ['/openmp', '/Ox'],
+            'unix': ['-fopenmp', '-O3']}
+    lopt = {'mingw32': ['-lgomp'],
+            'mingw64': ['-lgomp'],
+            'cygwin': ['-lgomp'],
+            'unix': ['-lgomp']}
 
 
 class build_subclass(build):
