@@ -1,9 +1,5 @@
 version: 0.8.2-{build}
 
-branches:
-  only:
-    - master
-
 environment:
   binstar_token:
     secure: b2ncXZ38LPZE+fGFa6/wXpL048Kl2bUZzXVCjBwc6wb9D8CeZ68BqlmYRC6kct9+
