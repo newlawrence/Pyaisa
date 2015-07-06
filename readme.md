@@ -12,7 +12,7 @@ Current automated builds:
 |-------------|-----------|:-----------------:|
 | Linux-x64   | Binstar   |[![Binstar Badge](https://binstar.org/newlawrence/pysapp/badges/build.svg)](https://binstar.org/newlawrence/pysapp/builds) |
 | OS X-x64    | Travis CI | *In progress...*  |
-| Windows-x64 | Appveyor  | [![Build status](https://ci.appveyor.com/api/projects/status/qxdx12yl9h8hyjux?svg=true)](https://ci.appveyor.com/project/newlawrence/pysapp) |
+| Windows-x64 | Appveyor  | [![Build status](https://ci.appveyor.com/api/projects/status/26yyxvrgvtc8l4fn?svg=true)](https://ci.appveyor.com/project/newlawrence/pysapp) |
 
 
 ### A simple Standard Atmosphere Model
