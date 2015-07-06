@@ -6,7 +6,7 @@
 [![Binstar Badge](https://binstar.org/newlawrence/pysapp/badges/license.svg)](https://binstar.org/newlawrence/pysapp)
 [![Binstar Badge](https://binstar.org/newlawrence/pysapp/badges/installer/conda.svg)](https://conda.binstar.org/newlawrence)
 
-Current automated builds:
+Current continuous integration tests and automated builds available through `conda`:
 
 | Platform    | Site      | Status            |
 |-------------|-----------|:-----------------:|
@@ -14,7 +14,7 @@ Current automated builds:
 | OS X-x64    | Travis CI | [![Travis CI Badge](https://api.travis-ci.org/newlawrence/Pysapp.svg)](https://travis-ci.org/newlawrence/Pysapp) |
 | Windows-x64 | Appveyor  | [![Appveyor Badge](https://ci.appveyor.com/api/projects/status/26yyxvrgvtc8l4fn?svg=true)](https://ci.appveyor.com/project/newlawrence/pysapp) |
 
-*Automated builds don't currently support parallelization.*
+*Sadly, automated builds don't currently support parallelization. Manual local compilation is the only way to link against the OpenMP library.*
 
 ### A simple Standard Atmosphere Model
 
@@ -38,7 +38,7 @@ Pysapp is a fork of [the work I begun then](https://github.com/AeroPython/aeropy
 
 *Pysapp strength resides in it's ability to guess the best point to switch from single to multicore processing at import time.*
 
-### Installation
+### Installation and testing
 
 Source code installation in a Python 3 environment via `setup.py` (set up `PARALLEL` environment variable first for a parallel build):
 
@@ -51,6 +51,12 @@ Conda packages for Linux, OS X and Windows 64 bit plattforms are provided:
 
 ```
 $ conda install pysapp --channel newlawrence
+```
+
+To test the library:
+
+```
+python -c "from pysapp.testing import test_library;test_library()"
 ```
 
 ### Acknowledgements
