@@ -2,12 +2,11 @@ package:
   name: pysapp
   version: "0.8.3"
 
+build:
+  number: 3
+
 source:
   path: ../..
-  #git_url: https://github.com/newlawrence/Pysapp.git
-
-build:
-  number: 2
 
 requirements:
   build:
@@ -16,8 +15,8 @@ requirements:
     - swig
     - pytest
   run:
-    - python >=3.4
-    - numpy >=1.8
+    - python
+    - numpy
     - pytest
 
 about:

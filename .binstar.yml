@@ -6,6 +6,9 @@ build_targets:
 platform: 
   - linux-64
 engine:
-  - python=3
+  - python=3.3 numpy=1.8
+  - python=3.3 numpy=1.9
+  - python=3.4 numpy=1.8
+  - python=3.4 numpy=1.9
 env:
   - CC=gcc

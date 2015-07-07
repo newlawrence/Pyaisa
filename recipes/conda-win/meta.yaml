@@ -3,11 +3,10 @@ package:
   version: "0.8.3"
 
 build:
-  number: 2
+  number: 3
 
 source:
   path: ../..
-  #git_url: https://github.com/newlawrence/Pysapp.git
 
 requirements:
   build:
@@ -15,8 +14,8 @@ requirements:
     - numpy
     - pytest
   run:
-    - python >=3.4
-    - numpy >=1.8
+    - python
+    - numpy
     - pytest
 
 about:
