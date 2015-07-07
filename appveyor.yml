@@ -12,19 +12,7 @@ environment:
       PYTHON_VERSION: "3.3"
       PYTHON_ARCH: "64"
       CONDA_PY: "33"
-      CONDA_NPY: "18"
-
-    - PYTHON: "C:\\Python33_64"
-      PYTHON_VERSION: "3.3"
-      PYTHON_ARCH: "64"
-      CONDA_PY: "33"
       CONDA_NPY: "19"
-
-    - PYTHON: "C:\\Python34_64"
-      PYTHON_VERSION: "3.4"
-      PYTHON_ARCH: "64"
-      CONDA_PY: "34"
-      CONDA_NPY: "18"
 
     - PYTHON: "C:\\Python34_64"
       PYTHON_VERSION: "3.4"
