@@ -1,9 +1,9 @@
 package:
   name: pysapp
-  version: "0.8.3"
+  version: "0.8.4"
 
 build:
-  number: 3
+  number: 1
 
 source:
   path: ../..

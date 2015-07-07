@@ -1,5 +1,5 @@
 # Author: Robert T. McGibbon
-# License: CC0 1.0 Universal: http://creativecommons.org/publicdomain/zero/1.0/
+# License: CC0 1.0 Universal http://creativecommons.org/publicdomain/zero/1.0/
 
 import sys
 import os
@@ -24,7 +24,7 @@ if(branch):
                                            '{0}*.tar.bz2'.format(name))
         binary_package = glob.glob(binary_package_glob)[0]
         shutil.move(binary_package, '.')
-    
+
         token = os.environ['BINSTAR_TOKEN']
         cmd = ['binstar', '-t', token, 'upload', '--force']
         cmd.extend(glob.glob('*.tar.bz2'))

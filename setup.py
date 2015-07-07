@@ -13,7 +13,7 @@ import os
 
 import numpy
 
-version = '0.8.3'
+version = '0.8.4'
 base_name = 'pysapp'
 include_path = './include'
 
@@ -35,12 +35,20 @@ if parallel:
             'cygwin': ['-lgomp'],
             'unix': ['-lgomp']}
 
+    filedata = None
+    with open('pysapp/isa.py', 'r') as file:
+        filedata = file.read()
+    filedata = filedata.replace('__default_parallel = -1',
+                                '__default_parallel = get_opt_parallel()')
+    with open('pysapp/isa.py', 'w') as file:
+        file.write(filedata)
+
 
 class build_subclass(build):
     sub_commands = [
-        ('build_ext', build.has_ext_modules), 
+        ('build_ext', build.has_ext_modules),
         ('build_py', build.has_pure_modules),
-        ('build_clib', build.has_c_libraries), 
+        ('build_clib', build.has_c_libraries),
         ('build_scripts', build.has_scripts),
     ]
 
