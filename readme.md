@@ -30,7 +30,7 @@ Although the model is finished, there're many more things to do yet: writing the
 
 Pysapp was born in another project where the [AeroPython team](https://github.com/AeroPython) begun writting an aerospace computation toolkit, [aeropy](https://github.com/AeroPython/aeropy). Our primary goal was to learn how to work as a team and acquire skills as git/github users.
 
-Our secondary goal was to adopt different aproaches to the problem of coding the ISA (International Standard Atmosphere) model, a set of equations to estimate the variation of the temperature, pressure and air density with height.
+Our secondary goal was to adopt different aproaches to the problem of coding the ISA (International Standard Atmosphere) model, a set of equations to estimate the variation of the temperature, pressure and air density with height above sea level.
 
 Pysapp is a fork of [the work I begun then](https://github.com/AeroPython/aeropy/tree/alberto-cpp), and I've focused in cpu performance as seen in the graph:
 
@@ -58,6 +58,70 @@ To test the library:
 ```
 python -c "from pysapp.testing import test_library;test_library()"
 ```
+
+### Brief usage instructions
+
+The library interface is composed of: `ISA` object, and `build_atm` functions. All magnitudes are expressed in the International System of Units.
+
+The main object is `ISA` and its main method is `atm`:
+
+```
+>>> import pysapp
+>>> isa = pysapp.ISA()   # Creates an ISA object with default (standard) params
+>>> isa.atm(0)           # Returns temperature, pressure and density at sea level
+(288.15, 101325.0, 1.225000018124288)
+>>> isa.atm([0, 11000])  # Can be used with vectorial arguments
+(array([288.15, 216.65]),           # Temperatures array
+ array([101325., 22632.04009501]),  # Pressures array
+ array([1.22500002, 0.36391765]))   # Densities array
+```
+
+Custom parameters can be defined after or in the constructor:
+
+```
+>>> new_isa = pysapp.ISA(R=300)      # New ISA object with custom Gas Constant
+>>> new_isa.atm(0)                   # Check new density at sea level
+(288.15, 101325.0, 1.1721325698420961)
+>>> new_isa.params['R']
+300.
+>>> new_isa.params['R'] = 287.05287  # Restore default value
+>>> new_isa.atm(0)
+(288.15, 101325.0, 1.225000018124288)
+>>> new_isa.params                   # Check all the params
+{'R': 287.05287,
+ 'p0': 101325.0,
+ 'g': 9.80665,
+ 'T0': 288.15,
+ 'psize': 900,    # Size of the array to turn on parallel calculations
+ 'layers': {'h': array([     0.,  11000.,  20000.,  32000.]),
+            'a': array([-0.0065,  0.    ,  0.001 ])}}
+```
+
+As the `ISA` object is a little ackward to use, the `build_atm` function is provided. That function returns `atm` functions built with the desired parameters. By default, `atm` function built with default parameters is provided.
+
+```
+>>> pysapp.atm(11000)
+(216.64999999999998, 22632.040095007793, 0.3639176481016034)
+>>> new_atm = pysapp.build_atm(R=300, g=10)
+>>> new_atm(11000)
+(216.64999999999998, 23471.318210945108, 0.36112498209008553)
+```
+
+Functions created using `build_atm` can be used with temperature offsets as their second argument (a functionality not present in `ISA.atm` method):
+
+```
+>>> pysapp.atm(0, 15)  # Offsets are added to the temperature at sea level
+(303.15, 101325.0, 1.1643864595827595)
+>>> pysapp.atm(11000, 15)
+(231.64999999999998, 24643.196756515972, 0.3705978083423891)
+```
+
+### Borrowed code
+
+Integration with **Travis CI** and **Appveyor** would be nearly impossible to achieve without the marvellous efforts of:
+
+* Olivier Grisel, Jonathan Helmus, Kyle Kastner and Robert McGibbon, from whom I took the code (licensed under [Creative Commons Universal v1.0](https://creativecommons.org/licenses/by/1.0/)) to set up the Appveyor environment for working with `conda`.
+* Robert McGibbon, whom magnific [python-appveyor-conda-example](https://github.com/rmcgibbo/python-appveyor-conda-example) (licensed under [Creative Commons Universal v1.0](https://creativecommons.org/licenses/by/1.0/) too) project, gave me the tools to finally manage to upload my builds to binstar (thank you so much about your excellent explanation about binstar tokens!).
 
 ### Acknowledgements
 

@@ -1,3 +1,6 @@
+# Author: Robert T. McGibbon
+# License: CC0 1.0 Universal: http://creativecommons.org/publicdomain/zero/1.0/
+
 import sys
 import os
 import yaml
