@@ -27,22 +27,23 @@ lopt = {'mingw32': ['-lgomp'],
         'cygwin': ['-lgomp'],
         'unix': ['-lgomp']}
 
-if 'CONDA_BUILD' in os.environ:
-    builds_id = {}
-    auto_build_ids = ['BINSTAR_BUILD', 'TRAVIS_BUILD_ID', 'APPVEYOR_BUILD_ID']
-    for build_id in auto_build_ids:
-        builds_id[build_id] = True if os.environ[build_id] != '<UNDEFINED>' \
-            else False
-    if any(builds_id.values()):
-        copt = {}
-        lopt = {}
-        filedata = None
-        with open('pysapp/isa.py', 'r') as file:
-            filedata = file.read()
-        filedata = filedata.replace('__default_parallel = get_opt_parallel()',
-                                    '__default_parallel = -1')
-        with open('pysapp/isa.py', 'w') as file:
-            file.write(filedata)
+auto_build_ids = ['BINSTAR_BUILD', 'TRAVIS_BUILD_ID', 'APPVEYOR_BUILD_ID']
+build_ids = {}
+for build_id in auto_build_ids:
+    build_ids[build_id] = False
+    if build_id in os.environ:
+        if os.environ[build_id] != '<UNDEFINED>':
+            build_ids[build_id] = True
+if any(build_ids.values()):
+    copt = {}
+    lopt = {}
+    filedata = None
+    with open('pysapp/isa.py', 'r') as file:
+        filedata = file.read()
+    filedata = filedata.replace('__default_parallel = get_opt_parallel()',
+                                '__default_parallel = -1')
+    with open('pysapp/isa.py', 'w') as file:
+        file.write(filedata)
 
 
 class build_subclass(build):

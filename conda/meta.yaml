@@ -3,14 +3,14 @@ package:
   version: "0.8.4"
 
 build:
-  number: 2
+  number: 3
   script_env:
-    - BINSTAR_BUILD
-    - TRAVIS_BUILD_ID
-    - APPVEYOR_BUILD_ID
+    - BINSTAR_BUILD # [not win]
+    - TRAVIS_BUILD_ID # [not win]
+    - APPVEYOR_BUILD_ID # [not win]
 
 source:
-  path: ../..
+  path: ..
 
 requirements:
   build:
