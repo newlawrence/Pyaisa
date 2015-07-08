@@ -10,7 +10,7 @@ build:
     - APPVEYOR_BUILD_ID
 
 source:
-  path: ../
+  path: ../..
 
 requirements:
   build:

@@ -12,7 +12,7 @@ install:
   - source integration/travis/install.sh
 
 script:
-  - conda build conda --quiet
+  - conda build recipes/conda --quiet
 
 after_success:
-  - python integration/binstar-push.py conda releases
+  - python integration/binstar-push.py recipes/conda releases
