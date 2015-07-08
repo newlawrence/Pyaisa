@@ -16,7 +16,6 @@ import numpy
 version = '0.8.4'
 base_name = 'pysapp'
 include_path = './include'
-auto_builds_id = ['BINSTAR_BUILD', 'TRAVIS_BUILD_ID', 'APPVEYOR_BUILD_ID']
 
 copt = {'mingw32': ['-fopenmp', '-O3'],
         'mingw64': ['-fopenmp', '-O3'],
@@ -28,20 +27,22 @@ lopt = {'mingw32': ['-lgomp'],
         'cygwin': ['-lgomp'],
         'unix': ['-lgomp']}
 
-builds_id = {}
-for build_id in auto_builds_id:
-    builds_id[build_id] = True if os.environ[build_id] != '<UNDEFINED>' \
-        else False
-if any(builds_id.values()):
-    copt = {}
-    lopt = {}
-    filedata = None
-    with open('pysapp/isa.py', 'r') as file:
-        filedata = file.read()
-    filedata = filedata.replace('__default_parallel = get_opt_parallel()',
-                                '__default_parallel = -1')
-    with open('pysapp/isa.py', 'w') as file:
-        file.write(filedata)
+if 'CONDA_BUILD' in os.environ:
+    builds_id = {}
+    auto_build_ids = ['BINSTAR_BUILD', 'TRAVIS_BUILD_ID', 'APPVEYOR_BUILD_ID']
+    for build_id in auto_build_ids:
+        builds_id[build_id] = True if os.environ[build_id] != '<UNDEFINED>' \
+            else False
+    if any(builds_id.values()):
+        copt = {}
+        lopt = {}
+        filedata = None
+        with open('pysapp/isa.py', 'r') as file:
+            filedata = file.read()
+        filedata = filedata.replace('__default_parallel = get_opt_parallel()',
+                                    '__default_parallel = -1')
+        with open('pysapp/isa.py', 'w') as file:
+            file.write(filedata)
 
 
 class build_subclass(build):
