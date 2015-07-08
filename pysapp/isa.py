@@ -17,7 +17,7 @@ from pysapp.performance import get_opt_parallel
 
 class ISA:
 
-    __default_parallel = -1
+    __default_parallel = get_opt_parallel()
 
     def __init__(self, **kwargs):
 

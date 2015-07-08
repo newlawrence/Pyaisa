@@ -40,10 +40,9 @@ Pysapp is a fork of [the work I begun then](https://github.com/AeroPython/aeropy
 
 ### Installation and testing
 
-Source code installation in a Python 3 environment via `setup.py` (set up `PARALLEL` environment variable first for a parallel build):
+Source code installation in a Python 3 environment via `setup.py`:
 
 ```
-$ export PARALLEL=1
 $ python setup.py install
 ```
 
@@ -65,7 +64,7 @@ The library interface is composed of: `ISA` object, and `build_atm` functions. A
 
 The main object is `ISA` and its main method is `atm`:
 
-```
+```python
 >>> import pysapp
 >>> isa = pysapp.ISA()   # Creates an ISA object with default (standard) params
 >>> isa.atm(0)           # Returns temperature, pressure and density at sea level
@@ -78,7 +77,7 @@ The main object is `ISA` and its main method is `atm`:
 
 Custom parameters can be defined after or in the constructor:
 
-```
+```python
 >>> new_isa = pysapp.ISA(R=300)      # New ISA object with custom Gas Constant
 >>> new_isa.atm(0)                   # Check new density at sea level
 (288.15, 101325.0, 1.1721325698420961)
@@ -99,7 +98,7 @@ Custom parameters can be defined after or in the constructor:
 
 As the `ISA` object is a little ackward to use, the `build_atm` function is provided. That function returns `atm` functions built with the desired parameters. By default, `atm` function built with default parameters is provided.
 
-```
+```python
 >>> pysapp.atm(11000)
 (216.64999999999998, 22632.040095007793, 0.3639176481016034)
 >>> new_atm = pysapp.build_atm(R=300, g=10)
@@ -109,7 +108,7 @@ As the `ISA` object is a little ackward to use, the `build_atm` function is prov
 
 Functions created using `build_atm` can be used with temperature offsets as their second argument (a functionality not present in `ISA.atm` method):
 
-```
+```python
 >>> pysapp.atm(0, 15)  # Offsets are added to the temperature at sea level
 (303.15, 101325.0, 1.1643864595827595)
 >>> pysapp.atm(11000, 15)
