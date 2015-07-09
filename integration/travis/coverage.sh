@@ -1,5 +1,6 @@
-conda install pytest
 pip install pytest-cov
-python setup.py build_ext --inplace
-pip install -e .
-py.test --cov pysapp
+conda install pysapp --use-local --quiet
+export SP=$(python -c "import site; print(site.getsitepackages()[0])")
+cp .coveragerc $SP/pysapp/
+cd $SP
+py.test --cov pysapp pysapp/test
