@@ -2,7 +2,7 @@
 
 ### Python 3 - ISA Model computed in parallel C++
 
-[![Coverage Status](https://coveralls.io/repos/newlawrence/Pysapp/badge.svg?branch=coveralls&service=github)](https://coveralls.io/github/newlawrence/Pysapp?branch=coveralls)
+[![Coverage Status](https://coveralls.io/repos/newlawrence/Pysapp/badge.svg?branch=coveralls&service=github)](https://coveralls.io/github/newlawrence/Pysapp)
 [![Binstar Badge](https://anaconda.org/newlawrence/pysapp/badges/version.svg)](https://anaconda.org/newlawrence/pysapp)
 [![Binstar Badge](https://anaconda.org/newlawrence/pysapp/badges/installer/conda.svg)](https://conda.anaconda.org/newlawrence)
 [![Binstar Badge](https://anaconda.org/newlawrence/pysapp/badges/license.svg)](https://anaconda.org/newlawrence/pysapp)
