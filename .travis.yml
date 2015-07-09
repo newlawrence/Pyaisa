@@ -1,5 +1,11 @@
 language: objective-c
 
+os:
+  - osx
+
+compiler:
+  - gcc
+
 env:
   matrix:
     - python=3.3 CONDA_PY=33 CONDA_NPY=19
@@ -16,3 +22,8 @@ script:
 
 after_success:
   - python integration/binstar-push.py conda releases
+  - python setup.py build_ext --inplace
+  - pip install -e .
+  - py.test --cov pysapp
+  - coveralls
+
