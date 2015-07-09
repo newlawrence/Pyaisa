@@ -2,15 +2,15 @@
 
 ### Python 3 - ISA Model computed in parallel C++
 
-[![Binstar Badge](https://binstar.org/newlawrence/pysapp/badges/version.svg)](https://binstar.org/newlawrence/pysapp)
-[![Binstar Badge](https://binstar.org/newlawrence/pysapp/badges/license.svg)](https://binstar.org/newlawrence/pysapp)
-[![Binstar Badge](https://binstar.org/newlawrence/pysapp/badges/installer/conda.svg)](https://conda.binstar.org/newlawrence)
+[![Binstar Badge](https://anaconda.org/newlawrence/pysapp/badges/version.svg)](https://anaconda.org/newlawrence/pysapp)
+[![Binstar Badge](https://anaconda.org/newlawrence/pysapp/badges/installer/conda.svg)](https://conda.anaconda.org/newlawrence)
+[![Binstar Badge](https://anaconda.org/newlawrence/pysapp/badges/license.svg)](https://anaconda.org/newlawrence/pysapp)
 
 Current continuous integration tests and automated builds available through `conda` for `Python 3.3` and `Python 3.4` using `NumPy 1.9`:
 
 | Platform    | Site      | Status            |
 |-------------|-----------|:-----------------:|
-| Linux-x64   | Binstar   |[![Binstar Badge](https://binstar.org/newlawrence/pysapp/badges/build.svg)](https://binstar.org/newlawrence/pysapp/builds) |
+| Linux-x64   | Binstar   |[![Binstar Badge](https://anaconda.org/newlawrence/pysapp/badges/build.svg)](https://anaconda.org/newlawrence/pysapp/builds) |
 | OS X-x64    | Travis CI | [![Travis CI Badge](https://api.travis-ci.org/newlawrence/Pysapp.svg)](https://travis-ci.org/newlawrence/Pysapp) |
 | Windows-x64 | Appveyor  | [![Appveyor Badge](https://ci.appveyor.com/api/projects/status/26yyxvrgvtc8l4fn?svg=true)](https://ci.appveyor.com/project/newlawrence/pysapp) |
 
