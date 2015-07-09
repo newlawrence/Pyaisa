@@ -16,14 +16,14 @@ env:
 
 install:
   - source integration/travis/install.sh
+  - conda update conda --quiet
+  - conda update -n root conda-build --quiet
 
 script:
   - conda build conda --quiet
+  - python integration/binstar-push.py conda releases
+  - source integration/travis/coverage.sh
 
 after_success:
-  - python integration/binstar-push.py conda releases
-  - python setup.py build_ext --inplace
-  - pip install -e .
-  - py.test --cov pysapp
-  - coveralls
+  coveralls
 
