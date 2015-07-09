@@ -1,7 +1,0 @@
-[run]
-omit =
-    pysapp/__init__.py
-    pysapp/testing.py
-    pysapp/isacpp/__init__.py
-    pysapp/isacpp/isacpp.py
-    pysapp/test/*.py
