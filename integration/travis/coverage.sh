@@ -1,5 +1,5 @@
 source activate _test
-pip install pytest-cov
+pip install pytest-cov coveralls
 export CDIR=$(pwd)
 export SP=$(python -c "import site;print(site.getsitepackages()[0])")
 cp .coveragerc $SP/pysapp/
