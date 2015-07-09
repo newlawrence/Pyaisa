@@ -7,5 +7,4 @@ cd $SP
 py.test --cov pysapp pysapp/test --cov-config pysapp/.coveragerc
 cp .coverage $CDIR/
 cd $CDIR
-echo $CDIR
-ls -a
+coveralls

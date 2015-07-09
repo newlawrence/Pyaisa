@@ -23,8 +23,7 @@ install:
 script:
   - conda build conda --quiet
   - python integration/binstar-push.py conda releases
-  - source integration/travis/coverage.sh
 
 after_success:
-  coveralls
+  - source integration/travis/coverage.sh
 
