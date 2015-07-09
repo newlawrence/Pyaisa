@@ -1,4 +1,4 @@
-# Pysapp v0.8.3
+# Pysapp v0.8.4
 
 ### Python 3 - ISA Model computed in parallel C++
 
@@ -15,10 +15,7 @@ Current continuous integration tests and automated builds available through `con
 | OS X-x64    | Travis CI | [![Travis CI Badge](https://api.travis-ci.org/newlawrence/Pysapp.svg)](https://travis-ci.org/newlawrence/Pysapp) |
 | Windows-x64 | Appveyor  | [![Appveyor Badge](https://ci.appveyor.com/api/projects/status/26yyxvrgvtc8l4fn?svg=true)](https://ci.appveyor.com/project/newlawrence/pysapp) |
 
-*Mind the build number. Due to the inability to set up succesfully OpenMP in every single CI site, automated tests and builds have parallelization disabled. The convention is:*
-
-* *Odd build numbers for automated non-parallel builds.*
-* *Even build numbers for manual parallel builds.*
+*Due to the inability to set up succesfully OpenMP in every single CI site, automated tests and builds have parallelization disabled.*
 
 ## A simple Standard Atmosphere Model
 

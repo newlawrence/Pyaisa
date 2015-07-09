@@ -12,7 +12,7 @@ from timeit import repeat
 from pysapp.constants import isa_params
 
 
-def get_opt_parallel(loops=100, repeats=5, imax=4):
+def get_opt_parallel(loops=200, repeats=20, imax=4):
 
     p = isa_params()
     setup = 'from numpy import array, empty, linspace\n' \
