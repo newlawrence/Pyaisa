@@ -1,5 +1,5 @@
 '''
-Copyright (c) Pysapp 2015  - Alberto Lorenzo (alorenzo.md@gmail.com)
+Copyright (c) Pyaisa 2015  - Alberto Lorenzo (alorenzo.md@gmail.com)
 
 Distributed under the MIT License.
 (See accompanying file "copying" or copy at
@@ -9,14 +9,14 @@ http://opensource.org/licenses/MIT)
 from math import log
 from timeit import repeat
 
-from pysapp.constants import isa_params
+from pyaisa.constants import isa_params
 
 
 def get_opt_parallel(loops=200, repeats=20, imax=4):
 
     p = isa_params()
     setup = 'from numpy import array, empty, linspace\n' \
-            'from pysapp.isacpp import ISACpp\n' \
+            'from pyaisa.isacpp import ISACpp\n' \
             'h = linspace(0., 11000., {})\n' \
             'T = empty(h.shape)\n' \
             'p = empty(h.shape)\n' \

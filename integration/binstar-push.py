@@ -1,4 +1,5 @@
 # Author: Robert T. McGibbon
+# Modified by: Alberto Lorenzo
 # License: CC0 1.0 Universal http://creativecommons.org/publicdomain/zero/1.0/
 
 import sys

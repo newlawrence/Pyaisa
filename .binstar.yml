@@ -1,4 +1,4 @@
-package: pysapp
+package: pyaisa
 script:
   - conda build conda
 build_targets:

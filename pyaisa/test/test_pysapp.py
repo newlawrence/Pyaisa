@@ -1,5 +1,5 @@
 '''
-Copyright (c) Pysapp 2015  - Alberto Lorenzo (alorenzo.md@gmail.com)
+Copyright (c) Pyaisa 2015  - Alberto Lorenzo (alorenzo.md@gmail.com)
 
 Distributed under the MIT License.
 (See accompanying file "copying" or copy at
@@ -21,7 +21,7 @@ from numpy.testing import (assert_equal, assert_almost_equal,
 
 import pytest
 
-from pysapp import atm
+from pyaisa import atm
 
 
 def test_sea_level():

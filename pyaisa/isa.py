@@ -1,5 +1,5 @@
 '''
-Copyright (c) Pysapp 2015  - Alberto Lorenzo (alorenzo.md@gmail.com)
+Copyright (c) Pyaisa 2015  - Alberto Lorenzo (alorenzo.md@gmail.com)
 
 Distributed under the MIT License.
 (See accompanying file "copying" or copy at
@@ -10,9 +10,9 @@ from warnings import warn
 
 import numpy as np
 
-from pysapp.isacpp import ISACpp
-from pysapp.constants import isa_params
-from pysapp.performance import get_opt_parallel
+from pyaisa.isacpp import ISACpp
+from pyaisa.constants import isa_params
+from pyaisa.performance import get_opt_parallel
 
 
 class ISA:

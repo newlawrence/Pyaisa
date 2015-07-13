@@ -1,9 +1,9 @@
 package:
-  name: pysapp
-  version: "0.8.4"
+  name: pyaisa
+  version: "0.8.5"
 
 build:
-  number: 4
+  number: 1
   script_env:
     - BINSTAR_BUILD # [not win]
     - TRAVIS_BUILD_ID # [not win]

@@ -1,5 +1,5 @@
 '''
-Copyright (c) Pysapp 2015  - Alberto Lorenzo (alorenzo.md@gmail.com)
+Copyright (c) Pyaisa 2015  - Alberto Lorenzo (alorenzo.md@gmail.com)
 
 Distributed under the MIT License.
 (See accompanying file "copying" or copy at
@@ -14,7 +14,7 @@ import os
 import numpy
 
 version = '0.8.4'
-base_name = 'pysapp'
+base_name = 'pyaisa'
 include_path = './include'
 
 copt = {'mingw32': ['-fopenmp', '-O3'],
@@ -38,11 +38,11 @@ if any(build_ids.values()):
     copt = {}
     lopt = {}
     filedata = None
-    with open('pysapp/isa.py', 'r') as file:
+    with open('pyaisa/isa.py', 'r') as file:
         filedata = file.read()
     filedata = filedata.replace('__default_parallel = get_opt_parallel()',
                                 '__default_parallel = -1')
-    with open('pysapp/isa.py', 'w') as file:
+    with open('pyaisa/isa.py', 'w') as file:
         file.write(filedata)
 
 

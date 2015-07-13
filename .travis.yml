@@ -1,11 +1,5 @@
 language: objective-c
 
-os:
-  - osx
-
-compiler:
-  - gcc
-
 env:
   matrix:
     - python=3.3 CONDA_PY=33 CONDA_NPY=19
