@@ -12,7 +12,7 @@ install:
   - source integration/travis/install.sh
   - conda config --set always_yes yes --set changeps1 no
   - conda update conda --quiet
-  - conda install pip conda-build binstar --quiet
+  - conda install pip conda-build jinja2 binstar --quiet
 
 script:
   - conda build conda --quiet

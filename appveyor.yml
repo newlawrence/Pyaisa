@@ -23,9 +23,8 @@ environment:
 install:
   - "powershell .\\integration\\appveyor\\install.ps1"
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-  - "choco -y install swig"
+  - "cinst -y swig"
   - "conda config --set always_yes yes --set changeps1 no"
-  - "conda update conda --quiet"
   - "conda update -n root conda-build --quiet"
 
 build: off
