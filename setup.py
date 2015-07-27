@@ -9,14 +9,17 @@ http://opensource.org/licenses/MIT)
 from distutils.core import setup, Extension
 from distutils.command.build import build
 from distutils.command.build_ext import build_ext
+
 import os
+import re
+import requests
 
 import numpy
 
 version = '0.8.4'
 base_name = 'pyaisa'
-include_path = './include'
 
+# Compiler flags
 copt = {'mingw32': ['-fopenmp', '-O3'],
         'mingw64': ['-fopenmp', '-O3'],
         'cygwin': ['-fopenmp', '-O3'],
@@ -27,6 +30,7 @@ lopt = {'mingw32': ['-lgomp'],
         'cygwin': ['-lgomp'],
         'unix': ['-lgomp']}
 
+# Parallel computing disabled on CI builds
 auto_build_ids = ['BINSTAR_BUILD', 'TRAVIS_BUILD_ID', 'APPVEYOR_BUILD_ID']
 build_ids = {}
 for build_id in auto_build_ids:
@@ -45,7 +49,27 @@ if any(build_ids.values()):
     with open('pyaisa/isa.py', 'w') as file:
         file.write(filedata)
 
+# Download numpy.i file
+version = re.compile(r'(?P<MAJOR>[0-9]+)\.'
+                     '(?P<MINOR>[0-9]+)') \
+                     .search(numpy.__version__)
+version_string = version.group()
+version_info = {key: int(value) for key, value in version.groupdict().items()}
 
+file_name = 'numpy.i'
+file_url = 'https://raw.githubusercontent.com/numpy/numpy/maintenance/' + \
+           version_string + '.x/tools/swig/' + file_name
+if(version_info['MAJOR'] == 1 and version_info['MINOR'] < 9):
+    file_url.replace('tools', 'doc')
+
+chunk_size = 8196
+with open(file_name, 'wb') as file:
+    for chunk in requests.get(file_url, stream=True).iter_content(chunk_size):
+        file.write(chunk)
+
+
+# Build steps must be reordered to include python generated files in the
+# final package
 class build_subclass(build):
     sub_commands = [
         ('build_ext', build.has_ext_modules),
@@ -67,6 +91,7 @@ class build_ext_subclass(build_ext):
                 e.extra_link_args = lopt[c]
         build_ext.build_extensions(self)
 
+# Set up
 ext_name = 'isacpp'
 ext_folder = os.path.join(base_name, ext_name)
 extension = Extension(base_name + '.' + ext_name + '._' + ext_name,
@@ -74,7 +99,7 @@ extension = Extension(base_name + '.' + ext_name + '._' + ext_name,
                       sources=[os.path.join(ext_folder, ext_name + '.i'),
                                os.path.join(ext_folder, ext_name + '.cpp'),
                                os.path.join(ext_folder, 'cstmath.cpp')],
-                      swig_opts=['-c++', '-py3', '-I' + include_path],
+                      swig_opts=['-c++', '-py3', '-I .'],
                       include_dirs=[numpy.get_include()],)
 
 setup(name=base_name,
