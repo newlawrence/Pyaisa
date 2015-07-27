@@ -15,6 +15,7 @@ source:
 requirements:
   build:
     - python
+    - requests
     - numpy
     - swig # [not win]
     - pytest

@@ -16,7 +16,7 @@ import requests
 
 import numpy
 
-version = '0.8.4'
+version = '0.8.5'
 base_name = 'pyaisa'
 
 # Compiler flags
