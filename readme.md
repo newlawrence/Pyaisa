@@ -13,11 +13,11 @@
 
 Current continuous integration tests and automated builds available through `conda` for `Python 3.3` and `Python 3.4` using `NumPy 1.9`:
 
-| Platform    | Site      | Status            |
-|-------------|-----------|:-----------------:|
-| Linux-x64   | Binstar   | [![Binstar Badge](https://anaconda.org/newlawrence/pyaisa/badges/build.svg)](https://anaconda.org/newlawrence/pyaisa/builds) |
-| OS X-x64    | Travis CI | [![Build Status](https://travis-ci.org/newlawrence/Pyaisa.svg?branch=master)](https://travis-ci.org/newlawrence/Pyaisa) |
-| Windows-x64 | Appveyor  | [![Build status](https://ci.appveyor.com/api/projects/status/kl1vji0sv1ywq7e7/branch/master?svg=true)](https://ci.appveyor.com/project/newlawrence/pyaisa/branch/master) |
+| Platform    | Site       | Status            |
+|-------------|------------|:-----------------:|
+| Linux-x64   | Anaconda   | [![Binstar Badge](https://anaconda.org/newlawrence/pyaisa/badges/build.svg)](https://anaconda.org/newlawrence/pyaisa/builds) |
+| OS X-x64    | Travis CI  | [![Build Status](https://travis-ci.org/newlawrence/Pyaisa.svg?branch=master)](https://travis-ci.org/newlawrence/Pyaisa) |
+| Windows-x64 | Appveyor   | [![Build status](https://ci.appveyor.com/api/projects/status/kl1vji0sv1ywq7e7/branch/master?svg=true)](https://ci.appveyor.com/project/newlawrence/pyaisa/branch/master) |
 
 *Due to the inability to set up succesfully OpenMP in every single CI site, automated tests and builds don't have parallel support enabled.*
 

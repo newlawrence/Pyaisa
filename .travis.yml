@@ -16,7 +16,7 @@ install:
 
 script:
   - conda build conda --quiet
-  - python integration/binstar-push.py conda releases
+  - python integration/anaconda-push.py conda releases
 
 after_success:
   - source integration/travis/coverage.sh
