@@ -1,7 +1,7 @@
 version: 0.8.5-{build}
 
 environment:
-  binstar_token:
+  anaconda_token:
     secure: b2ncXZ38LPZE+fGFa6/wXpL048Kl2bUZzXVCjBwc6wb9D8CeZ68BqlmYRC6kct9+
 
   global:
@@ -21,11 +21,12 @@ environment:
       CONDA_NPY: "19"
 
 install:
+  - "cinst -y swig"
   - "powershell .\\integration\\appveyor\\install.ps1"
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-  - "cinst -y swig"
   - "conda config --set always_yes yes --set changeps1 no"
-  - "conda update -n root conda-build --quiet"
+  - "conda update conda --quiet"
+  - "conda install pip jinja2 conda-build conda-server"
 
 build: off
 

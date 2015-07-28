@@ -6,13 +6,13 @@ env:
     - python=3.4 CONDA_PY=34 CONDA_NPY=19
 
   global:
-    - secure: "jqJ5q8nVDeUm/yj0Co41/YCrW9wkhhsbr5ZeqOBT1/tWzrMUYoKKrA735cZAOt/F/c17uOB0OuR6pswRwLOHi2LMNKNTZYEQKgqL1gz6VHFCX8n4Cp5pU1eu3x5nApdPJTJUSGCA1Q1c2RUqJXH5+M+GuD6dmDEWvaTUcUNyxbhi21Jofqm0wFcgdD4y6Qp/s3zD5WBzSc0Qsn3vbe4RQwN0oAhIfW49cUnhTyPfEing7Rf9Z5EbfmF4Xj9DqoVKes+HfgzTW3FlJ3PKYre26MxLZ3L12SavgRDd4SqEuQ/l9wY+6ezxmZh7RahbA2ilxBgcnGHs6kCEOnAtk2nJd5j0DqAPIovyIl9DQUUknf1ycJFFUAgpaKMmBwo7E46ye5Mc+Tbueln3UPB+sikePpkUw1el1w5dkNUU9dfrIM39tBDZeXalRi1gl14uIfcbh+GrXGv6kS6D7v4N+bn7D9HCxOPZJFJHu7aYuQsA8peZnrV2aFCWDiNKSJNKH9BuSd0UWwcraWU8JlDNZdiE5flG3+jY4c/rUApy1m6EfwenOn4H81UK5O94xOxbHl7RtRcszrdqsEVgvY7L5Y2PhmgC4npcrWUHPs+f8hT4VgZ3AXdciugC7fDCPvTTxeNV9LQh9+GQNAHMuoU6ZrBxbb9c4Dv2+GWdjauYcdOiE68="
+    - secure: "Yfa5s8NbkgS+d3y9VXEhZq1XGZvT9wMXIpB06X8zWnMrPt4jVPwyJAt4eDtp2kXwr6wWL2WYvD6x/r2IHadwBBasFbAlkHcGHUtN++2fz0Eny8i0tFltRpwIPdaVKtpmwXmVg1uspfYNpgjf14zwzMwzCOW4G25YqN4FkJN/70dQoz7/Dlkpkd+4hEDp1L9VDqIsEWbesP2SQNFM6ASJrwNnLvPtzRZ7MHu5BT5w5EsERD1CnIgXDsXYX12aTohV6Sg5YL/e7NU2oKkX8L9G13r/EuxYq0u3a6+F/UJ5QojN/P+ASsEpPAz8++qFzsW41uvQqZI2apjhsBnEpJBpAYeA1U55T5p3l6wBjhdG2yN6lfTzT/TL4sI9fduGbcD50q5XTICjG/5jcocLCpxcwQKartZYIcDS8oqABmrp8nQ8fHxlSEHS6w1oaZu+a4ZC9joEkmgtg7aehuWlJgPrFKhyUkMpu5GwhBqsBTAJFe9ks42/IBJRYyQMOSqxeFk2arQgd05PxnDOUYNwyCOMYh9L4XavyZByC+2NchI7AYsFRJfPFNN4xVTNmh5lXJjOuoS6yOcZWyiHUpFrPpDxdgC3mUMLUYzPtYbIXMRpZmJVqi5uP3dQbrbZ8peukGfGlzogOa3pVEQRrk+PbfYjN5oNAFX92uXvQbmpDjXPwOg="
 
 install:
   - source integration/travis/install.sh
   - conda config --set always_yes yes --set changeps1 no
   - conda update conda --quiet
-  - conda install pip conda-build jinja2 binstar --quiet
+  - conda install pip jinja2 conda-build conda-server --quiet
 
 script:
   - conda build conda --quiet

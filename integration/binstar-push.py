@@ -26,8 +26,8 @@ if(branch):
         binary_package = glob.glob(binary_package_glob)[0]
         shutil.move(binary_package, '.')
 
-        token = os.environ['BINSTAR_TOKEN']
-        cmd = ['binstar', '-t', token, 'upload', '--force']
+        token = os.environ['ANACONDA_TOKEN']
+        cmd = ['conda-server', '-t', token, 'upload', '--force']
         cmd.extend(glob.glob('*.tar.bz2'))
         try:
             subprocess.check_call(cmd)
