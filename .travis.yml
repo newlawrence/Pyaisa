@@ -12,7 +12,7 @@ install:
   - source integration/travis/install.sh
   - conda config --set always_yes yes --set changeps1 no
   - conda update conda --quiet
-  - conda install pip jinja2 conda-build conda-server --quiet
+  - conda install pip jinja2 conda-build anaconda-client --quiet
 
 script:
   - conda build conda --quiet
