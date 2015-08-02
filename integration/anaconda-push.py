@@ -27,7 +27,7 @@ if(branch):
         shutil.move(binary_package, '.')
 
         token = os.environ['ANACONDA_TOKEN']
-        cmd = ['anaconda', 'upload', '-t', token, '--force']
+        cmd = ['anaconda', '--token', token, 'upload', '--force']
         cmd.extend(glob.glob('*.tar.bz2'))
         try:
             subprocess.check_call(cmd)
