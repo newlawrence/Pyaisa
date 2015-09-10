@@ -1,0 +1,11 @@
+# Exclude CI Python configuration files
+integration/* linguist-vendored 
+*.yml linguist-vendored
+*.yaml linguist-vendored
+
+# Exclude script files from language statistics
+*.sh linguist-vendored
+*.bat linguist-vendored
+*.cmd linguist-vendored
+*.ps1 linguist-vendored
+
