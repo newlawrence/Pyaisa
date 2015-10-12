@@ -1,8 +1,6 @@
 package: pyaisa
 script:
-  - conda config --set always_yes yes
-  - conda update conda-build --quiet
-  - export NPVER=$(python -c "import numpy;print(numpy.__version__)")
+  - export NPVER=$(python -c "import numpy;npver=numpy.__version__;print(npver[:npver.rfind('.')])")
   - conda build --numpy $NPVER conda
 build_targets:
   - conda
