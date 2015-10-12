@@ -1,7 +1,7 @@
 package: pyaisa
 script:
-  - export NPVER=$(python -c "import numpy;npver=numpy.__version__;print(npver[:npver.rfind('.')])")
-  - conda build --numpy $NPVER conda
+  - export CONDA_NPY=$(python -c "import numpy;npver=numpy.__version__;print(npver[:npver.rfind('.')].replace('.',''))")
+  - conda build conda
 build_targets:
   - conda
 platform: 
