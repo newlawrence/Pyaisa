@@ -61,7 +61,7 @@ np_file_name = 'numpy.i'
 np_file_url = 'https://raw.githubusercontent.com/numpy/numpy/maintenance/' + \
               np_version_string + '.x/tools/swig/' + np_file_name
 if(np_version_info['MAJOR'] == 1 and np_version_info['MINOR'] < 9):
-    np_file_url.replace('tools', 'doc')
+    np_file_url = np_file_url.replace('tools', 'doc')
 
 chunk_size = 8196
 with open(np_file_name, 'wb') as file:
