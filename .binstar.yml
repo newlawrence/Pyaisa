@@ -1,5 +1,7 @@
 package: pyaisa
 script:
+  - conda config --set always_yes yes
+  - conda update conda-build --quiet
   - export NPVER=$(python -c "import numpy;print(numpy.__version__)")
   - conda build --numpy $NPVER conda
 build_targets:
