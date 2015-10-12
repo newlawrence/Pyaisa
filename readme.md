@@ -11,7 +11,7 @@
 
 ***Pysapp*** *has changed its name due to name collision with another Open Source project. Say hello to* ***Pyaisa****!*
 
-Current continuous integration tests and automated builds available through `conda` for `Python 3.3` and `Python 3.4` using `NumPy 1.9`:
+Current continuous integration tests and automated builds available through `conda` for `Python 3.3`, `Python 3.4` and `Python 3.5`:
 
 | Platform    | Site       | Status            |
 |-------------|------------|:-----------------:|

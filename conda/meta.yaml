@@ -3,10 +3,11 @@ package:
   version: "0.8.5"
 
 build:
-  number: 1
+  number: 2
+  string: np{{ np }}py{{ py }}
   script_env:
-    - BINSTAR_BUILD # [not win]
-    - TRAVIS_BUILD_ID # [not win]
+    - BINSTAR_BUILD     # [not win]
+    - TRAVIS_BUILD_ID   # [not win]
     - APPVEYOR_BUILD_ID # [not win]
 
 source:
@@ -15,13 +16,19 @@ source:
 requirements:
   build:
     - python
+    - numpy 1.7*  # [np == 17]
+    - numpy 1.8*  # [np == 18]
+    - numpy 1.9*  # [np == 19]
+    - numpy 1.10* # [np == 110]
     - requests
-    - numpy
-    - swig # [not win]
+    - swig        # [not win]
     - pytest
   run:
     - python
-    - numpy
+    - numpy 1.7*  # [np == 17]
+    - numpy 1.8*  # [np == 18]
+    - numpy 1.9*  # [np == 19]
+    - numpy 1.10* # [np == 110]
     - pytest
 
 about:
