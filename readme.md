@@ -11,7 +11,7 @@
 
 ***Pysapp*** *has changed its name due to name collision with another Open Source project. Say hello to* ***Pyaisa****!*
 
-Current continuous integration tests and automated builds available through `conda` for `Python 3.3`, `Python 3.4` and `Python 3.5`:
+Current continuous integration tests and automated builds available through `conda` for `Python 3.5`:
 
 | Platform    | Site       | Status            |
 |-------------|------------|:-----------------:|
@@ -19,7 +19,6 @@ Current continuous integration tests and automated builds available through `con
 | OS X-x64    | Travis CI  | [![Build Status](https://travis-ci.org/newlawrence/Pyaisa.svg?branch=master)](https://travis-ci.org/newlawrence/Pyaisa) |
 | Windows-x64 | Appveyor   | [![Build status](https://ci.appveyor.com/api/projects/status/kl1vji0sv1ywq7e7/branch/master?svg=true)](https://ci.appveyor.com/project/newlawrence/pyaisa/branch/master) |
 
-*Due to the inability to set up succesfully OpenMP in every single CI site, automated tests and builds don't have parallel support enabled.*
 
 ## A simple Standard Atmosphere Model
 
