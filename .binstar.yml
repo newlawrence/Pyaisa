@@ -7,9 +7,6 @@ build_targets:
 platform: 
   - linux-64
 engine:
-  - python=3.3 numpy=1.9
-  - python=3.4 numpy=1.9
-  - python=3.4 numpy=1.10
   - python=3.5 numpy=1.9
   - python=3.5 numpy=1.10
 env:

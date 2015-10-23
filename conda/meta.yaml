@@ -3,12 +3,8 @@ package:
   version: "0.8.5"
 
 build:
-  number: 2
-  string: np{{ np }}py{{ py }}
-  script_env:
-    - BINSTAR_BUILD     # [not win]
-    - TRAVIS_BUILD_ID   # [not win]
-    - APPVEYOR_BUILD_ID # [not win]
+  number: 3
+  string: np{{ np }}py{{ py }}_{{ CONDA_BUILD }}
 
 source:
   path: ..
@@ -16,8 +12,6 @@ source:
 requirements:
   build:
     - python
-    - numpy 1.7*  # [np == 17]
-    - numpy 1.8*  # [np == 18]
     - numpy 1.9*  # [np == 19]
     - numpy 1.10* # [np == 110]
     - requests
@@ -25,8 +19,6 @@ requirements:
     - pytest
   run:
     - python
-    - numpy 1.7*  # [np == 17]
-    - numpy 1.8*  # [np == 18]
     - numpy 1.9*  # [np == 19]
     - numpy 1.10* # [np == 110]
     - pytest
