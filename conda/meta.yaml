@@ -4,7 +4,8 @@ package:
 
 build:
   number: 3
-  string: np{{ np }}py{{ py }}_{{ CONDA_BUILD }}
+  script_env:
+    - CC # [not win]
 
 source:
   path: ..
