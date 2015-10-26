@@ -5,7 +5,8 @@ package:
 build:
   number: 3
   script_env:
-    - CC # [not win]
+    - CC  # [not win]
+    - CXX # [not win]
 
 source:
   path: ..

@@ -15,7 +15,7 @@ install:
   - conda install pip jinja2 conda-build anaconda-client --quiet
 
 script:
-  - CC=gcc-4.9 conda build conda --quiet
+  - CC=gcc-4.9 CXX=g++-4.9 conda build conda --quiet
   - python integration/anaconda-push.py conda releases
 
 after_success:
