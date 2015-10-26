@@ -8,9 +8,6 @@ env:
   global:
     - secure: "Yfa5s8NbkgS+d3y9VXEhZq1XGZvT9wMXIpB06X8zWnMrPt4jVPwyJAt4eDtp2kXwr6wWL2WYvD6x/r2IHadwBBasFbAlkHcGHUtN++2fz0Eny8i0tFltRpwIPdaVKtpmwXmVg1uspfYNpgjf14zwzMwzCOW4G25YqN4FkJN/70dQoz7/Dlkpkd+4hEDp1L9VDqIsEWbesP2SQNFM6ASJrwNnLvPtzRZ7MHu5BT5w5EsERD1CnIgXDsXYX12aTohV6Sg5YL/e7NU2oKkX8L9G13r/EuxYq0u3a6+F/UJ5QojN/P+ASsEpPAz8++qFzsW41uvQqZI2apjhsBnEpJBpAYeA1U55T5p3l6wBjhdG2yN6lfTzT/TL4sI9fduGbcD50q5XTICjG/5jcocLCpxcwQKartZYIcDS8oqABmrp8nQ8fHxlSEHS6w1oaZu+a4ZC9joEkmgtg7aehuWlJgPrFKhyUkMpu5GwhBqsBTAJFe9ks42/IBJRYyQMOSqxeFk2arQgd05PxnDOUYNwyCOMYh9L4XavyZByC+2NchI7AYsFRJfPFNN4xVTNmh5lXJjOuoS6yOcZWyiHUpFrPpDxdgC3mUMLUYzPtYbIXMRpZmJVqi5uP3dQbrbZ8peukGfGlzogOa3pVEQRrk+PbfYjN5oNAFX92uXvQbmpDjXPwOg="
 
-before_install:
-  - 'if [[ "$TRAVIS_OS_NAME" == "osx" && "$CC" == "gcc" ]]; then CC=gcc-4.9; fi'
-
 install:
   - source integration/travis/install.sh
   - conda config --set always_yes yes --set changeps1 no
@@ -18,7 +15,7 @@ install:
   - conda install pip jinja2 conda-build anaconda-client --quiet
 
 script:
-  - conda build conda --quiet
+  - CC=gcc-4.9 conda build conda --quiet
   - python integration/anaconda-push.py conda releases
 
 after_success:
