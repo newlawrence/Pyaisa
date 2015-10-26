@@ -31,7 +31,7 @@ install:
 build: off
 
 test_script:
-  - "%CMD_IN_ENV% conda build conda --quiet"
+  - "%CMD_IN_ENV% conda build recipe --quiet"
 
 on_success:
   - "python integration\\anaconda-push.py conda releases"
