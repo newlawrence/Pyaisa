@@ -16,7 +16,7 @@ install:
 
 script:
   - CC=gcc-4.9 CXX=g++-4.9 conda build recipe --quiet
-  - python integration/anaconda-push.py conda releases
+  - python integration/anaconda-push.py recipe releases
 
 after_success:
   - source integration/travis/coverage.sh
