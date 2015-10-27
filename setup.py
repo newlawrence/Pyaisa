@@ -30,25 +30,6 @@ lopt = {'mingw32': ['-lgomp'],
         'cygwin': ['-lgomp'],
         'unix': ['-lgomp']}
 
-# Parallel computing disabled on CI builds
-auto_build_ids = ['BINSTAR_BUILD', 'TRAVIS_BUILD_ID', 'APPVEYOR_BUILD_ID']
-build_ids = {}
-for build_id in auto_build_ids:
-    build_ids[build_id] = False
-    if build_id in os.environ:
-        if os.environ[build_id] != '<UNDEFINED>':
-            build_ids[build_id] = True
-if any(build_ids.values()):
-    copt = {}
-    lopt = {}
-    filedata = None
-    with open('pyaisa/isa.py', 'r') as file:
-        filedata = file.read()
-    filedata = filedata.replace('__default_parallel = get_opt_parallel()',
-                                '__default_parallel = -1')
-    with open('pyaisa/isa.py', 'w') as file:
-        file.write(filedata)
-
 # Download numpy.i file
 np_version = re.compile(r'(?P<MAJOR>[0-9]+)\.'
                         '(?P<MINOR>[0-9]+)') \
