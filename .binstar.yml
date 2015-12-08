@@ -9,4 +9,4 @@ env:
 build_targets:
   - conda
 script:
-  - CC=gcc CXX=g++ conda build recipe --numpy $NUMPY --quiet
+  - CC=gcc CXX=g++ conda build recipe --numpy $NUMPY

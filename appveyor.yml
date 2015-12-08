@@ -20,6 +20,6 @@ install:
   - "conda install pip jinja2 conda-build anaconda-client --quiet"
 build: off
 test_script:
-  - "%CMD_IN_ENV% conda build recipe --python %PYTHON% --numpy %NUMPY% --quiet"
+  - "%CMD_IN_ENV% conda build recipe --python %PYTHON% --numpy %NUMPY%"
 on_success:
   - "python integration\\anaconda-push.py recipe releases"
