@@ -4,12 +4,9 @@ platform:
 engine:
   - python=3.5
 env:
-  - NUMPY=1.9
-  - NUMPY=1.10
-install:
-  - conda config --set always_yes yes --set changeps1 no
-  - conda install conda-build
+  - CONDA_NPY=19
+  - CONDA_NPY=110
 build_targets:
   - conda
 script:
-  - CC=gcc CXX=g++ conda build recipe --numpy $NUMPY --quiet
+  - CC=gcc CXX=g++ conda build recipe --quiet
