@@ -4,8 +4,8 @@ platform:
 engine:
   - python=3.5
 env:
-  - CONDA_NPY=19
-  - CONDA_NPY=110
+  - CONDA_NPY=1.9
+  - CONDA_NPY=1.10
 build_targets:
   - conda
 script:
