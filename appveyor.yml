@@ -12,9 +12,9 @@ environment:
       NUMPY: "1.10"
       ARCH: "64"
 install:
-  - "cinst -y swig"
-  - "cinst -y miniconda"
-  - "SET PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
+  - "cinst -y swig > swig_log.txt"
+  - "cinst -y miniconda > conda_log.txt"
+  - "SET PATH=C:\\tools\\Miniconda;C:\\tools\\Miniconda\\Scripts;%PATH%"
   - "conda config --set always_yes yes --set changeps1 no"
   - "conda update conda --quiet"
   - "conda install pip jinja2 conda-build anaconda-client --quiet"
