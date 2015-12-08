@@ -1,23 +1,19 @@
 language: objective-c
-
 env:
   matrix:
-    - python=3.5 CONDA_PY=35 CONDA_NPY=19
-    - python=3.5 CONDA_PY=35 CONDA_NPY=110
-
+    - PYTHON=3.5 NUMPY=1.9
+    - PYTHON=3.5 NUMPY=1.10
   global:
     - secure: "Yfa5s8NbkgS+d3y9VXEhZq1XGZvT9wMXIpB06X8zWnMrPt4jVPwyJAt4eDtp2kXwr6wWL2WYvD6x/r2IHadwBBasFbAlkHcGHUtN++2fz0Eny8i0tFltRpwIPdaVKtpmwXmVg1uspfYNpgjf14zwzMwzCOW4G25YqN4FkJN/70dQoz7/Dlkpkd+4hEDp1L9VDqIsEWbesP2SQNFM6ASJrwNnLvPtzRZ7MHu5BT5w5EsERD1CnIgXDsXYX12aTohV6Sg5YL/e7NU2oKkX8L9G13r/EuxYq0u3a6+F/UJ5QojN/P+ASsEpPAz8++qFzsW41uvQqZI2apjhsBnEpJBpAYeA1U55T5p3l6wBjhdG2yN6lfTzT/TL4sI9fduGbcD50q5XTICjG/5jcocLCpxcwQKartZYIcDS8oqABmrp8nQ8fHxlSEHS6w1oaZu+a4ZC9joEkmgtg7aehuWlJgPrFKhyUkMpu5GwhBqsBTAJFe9ks42/IBJRYyQMOSqxeFk2arQgd05PxnDOUYNwyCOMYh9L4XavyZByC+2NchI7AYsFRJfPFNN4xVTNmh5lXJjOuoS6yOcZWyiHUpFrPpDxdgC3mUMLUYzPtYbIXMRpZmJVqi5uP3dQbrbZ8peukGfGlzogOa3pVEQRrk+PbfYjN5oNAFX92uXvQbmpDjXPwOg="
-
 install:
-  - source integration/travis/install.sh
+  - wget http://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O miniconda.sh
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
   - conda config --set always_yes yes --set changeps1 no
   - conda update conda --quiet
   - conda install pip jinja2 conda-build anaconda-client --quiet
-
 script:
-  - CC=gcc-4.9 CXX=g++-4.9 conda build recipe --quiet
+  - CC=gcc-4.9 CXX=g++-4.9 conda build recipe --python $PYTHON --numpy $NUMPY --quiet
   - python integration/anaconda-push.py recipe releases
-
 after_success:
   - source integration/travis/coverage.sh
-

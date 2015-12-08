@@ -1,37 +1,25 @@
 version: 0.8.5-{build}
-
 environment:
   anaconda_token:
     secure: b2ncXZ38LPZE+fGFa6/wXpL048Kl2bUZzXVCjBwc6wb9D8CeZ68BqlmYRC6kct9+
-
   global:
     CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\integration\\appveyor\\run_with_env.cmd"
-
   matrix:
-    - PYTHON: "C:\\Python35_64"
-      PYTHON_VERSION: "3.5"
-      PYTHON_ARCH: "64"
-      CONDA_PY: "35"
-      CONDA_NPY: "19"
-
-    - PYTHON: "C:\\Python35_64"
-      PYTHON_VERSION: "3.5"
-      PYTHON_ARCH: "64"
-      CONDA_PY: "35"
-      CONDA_NPY: "110"
-
+    - PYTHON: "3.5"
+      NUMPY: "1.9"
+      ARCH: "64"
+    - PYTHON: "3.5"
+      NUMPY: "1.10"
+      ARCH: "64"
 install:
   - "cinst -y swig"
-  - "powershell .\\integration\\appveyor\\install.ps1"
-  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  - "cinst -y miniconda"
+  - "SET PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
   - "conda config --set always_yes yes --set changeps1 no"
   - "conda update conda --quiet"
   - "conda install pip jinja2 conda-build anaconda-client --quiet"
-
 build: off
-
 test_script:
-  - "%CMD_IN_ENV% conda build recipe --quiet"
-
+  - "%CMD_IN_ENV% conda build recipe --python %PYTHON% --numpy %NUMPY% --quiet"
 on_success:
   - "python integration\\anaconda-push.py recipe releases"

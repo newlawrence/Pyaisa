@@ -5,7 +5,7 @@ package:
 build:
   number: 3
   script_env:
-    - CC  # [not win]
+    - CC # [not win]
     - CXX # [not win]
 
 source:
@@ -14,15 +14,13 @@ source:
 requirements:
   build:
     - python
-    - numpy 1.9*  # [np == 19]
-    - numpy 1.10* # [np == 110]
+    - numpy {{NPY_VER}}*
     - requests
-    - swig        # [not win]
+    - swig # [not win]
     - pytest
   run:
     - python
-    - numpy 1.9*  # [np == 19]
-    - numpy 1.10* # [np == 110]
+    - numpy {{NPY_VER}}*
     - pytest
 
 about:
