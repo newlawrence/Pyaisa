@@ -8,7 +8,7 @@ env:
   - NUMPY=1.10
 install:
   - conda config --set always_yes yes --set changeps1 no
-  - conda update -n root conda-build
+  - conda update -n root conda-build --quiet
 build_targets:
   - conda
 script:

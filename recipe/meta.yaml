@@ -3,7 +3,7 @@ package:
   version: "0.8.5"
 
 build:
-  number: 3
+  number: 4
   script_env:
     - CC # [not win]
     - CXX # [not win]
