@@ -13,7 +13,7 @@ install:
   - conda update conda --quiet
   - conda install pip jinja2 conda-build anaconda-client --quiet
 script:
-  - CC=gcc-4.9 CXX=g++-4.9 conda build recipe --python $PYTHON --numpy $NUMPY
+  - CC=gcc-4.9 CXX=g++-4.9 conda build recipe --python $PYTHON --numpy $NUMPY --quiet
   - python integration/anaconda-push.py recipe releases
 after_success:
   - source integration/travis/coverage.sh
